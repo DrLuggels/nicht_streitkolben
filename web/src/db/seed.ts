@@ -31,7 +31,7 @@ const productSeed = [
     priceCents: 8900,
     description:
       "Unser klassisches Einstiegsmodell aus heimischer Sumpf-Eiche, von Hand gedrechselt und mit handgeschmiedeten Stahlnieten beschlagen. Der ausgewogene Schwerpunkt vermittelt Anfängern in nur wenigen Wochen ein sicheres Standing in Diskussionen jeder Art.",
-    image: "/images/products/lehrlings-kolben-eiche.jpg",
+    image: "/images/products/custom-1.png",
     inStock: true,
     featured: true,
   },
@@ -78,7 +78,7 @@ const productSeed = [
     priceCents: 38900,
     description:
       "Damaszener Faltenstahl mit 256 Lagen, präzise austariert für die feine Klingenarbeit der Argumentation. Das geflanschte Kopfstück hinterlässt ausschließlich nachvollziehbare Eindrücke. Inklusive Lederfutteral mit Inventur-Block.",
-    image: "/images/products/buchhalter-kolben.jpg",
+    image: "/images/products/custom-2.png",
     inStock: true,
     featured: true,
   },
@@ -140,7 +140,7 @@ const productSeed = [
     priceCents: 89900,
     description:
       "Unser Spitzenmodell für Botschafts-Empfänge und Vorstandssitzungen. Damaststahl mit 24-karätiger Goldätzung, Griff aus belgischem Kalbsleder. Wird in einem maßgefertigten Mahagoni-Koffer mit Echtheitszertifikat und Krawattennadel ausgeliefert.",
-    image: "/images/products/diplomatenkolben.jpg",
+    image: "/images/products/custom-3.png",
     inStock: true,
     featured: true,
   },
