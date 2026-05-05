@@ -13,13 +13,13 @@ Manufaktur- &amp; Forum-Plattform für die Kolbenmanufaktur Wittenberg.
 - **Caddy 2** als Reverse-Proxy mit automatischem Let’s Encrypt
 - **Mailhog** (Mail-Catcher), **Adminer** (DB-Admin)
 
-## Schnellstart
+## Schnellstart (lokal)
 
 ```bash
 cp .env.example .env          # Passwort/SECRET anpassen!
 
-# Stack hochfahren
-docker compose up -d --build
+# Stack hochfahren – Local-Override für Plain-HTTP-Caddy
+docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --build
 
 # Schema initialisieren + Demo-Daten einspielen
 docker compose exec web npm run db:push
@@ -32,10 +32,18 @@ Anschließend:
 - **Mailhog**: http://localhost:8025
 - **Adminer**: http://localhost:8080 (Server: `db`, User/Pass `kolben`)
 
-In Produktion mit echter Domain `nicht-streitkolben.xyz` muss
-`POSTGRES_PASSWORD` und `SESSION_SECRET` in `.env` gesetzt werden, und Port 80
-und 443 müssen von außen erreichbar sein, damit Caddy ein Let’s-Encrypt-Zertifikat
-holen kann.
+## Produktion
+
+Auf dem Server ohne Local-Override starten – damit Caddy die Produktions-Caddyfile
+mit Cloudflare-DNS-01-Challenge nutzt:
+
+```bash
+docker compose up -d --build
+```
+
+In `.env` müssen gesetzt sein: `POSTGRES_PASSWORD`, `SESSION_SECRET`, `CF_API_TOKEN`,
+`CF_ZONE_NAME=nicht-streitkolben.xyz`, `ORIGIN_IPV4`. Port 80 und 443 müssen von außen
+erreichbar sein.
 
 ## Demo-Accounts
 
