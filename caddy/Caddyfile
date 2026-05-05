@@ -1,6 +1,6 @@
 # Globale Optionen
 {
-	email admin@nicht-streitkolben.de
+	email admin@nicht-streitkolben.xyz
 	# Bei Cloudflare-Proxy: DNS-Challenge nutzen, weil HTTP-Challenge sonst
 	# durch CF abgefangen wird.
 }
@@ -17,7 +17,7 @@
 }
 
 # Produktion: Domain mit Cloudflare-DNS-01-Challenge
-nicht-streitkolben.de, www.nicht-streitkolben.de {
+nicht-streitkolben.xyz, www.nicht-streitkolben.xyz {
 	encode zstd gzip
 	import security_headers
 
@@ -27,8 +27,8 @@ nicht-streitkolben.de, www.nicht-streitkolben.de {
 	}
 
 	# www → apex Redirect
-	@www host www.nicht-streitkolben.de
-	redir @www https://nicht-streitkolben.de{uri} permanent
+	@www host www.nicht-streitkolben.xyz
+	redir @www https://nicht-streitkolben.xyz{uri} permanent
 
 	reverse_proxy web:3000
 }

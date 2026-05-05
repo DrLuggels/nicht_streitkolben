@@ -727,7 +727,7 @@ async function main() {
   const [adminRow] = await db
     .insert(users)
     .values({
-      email: "verwaltung@nicht-streitkolben.de",
+      email: "verwaltung@nicht-streitkolben.xyz",
       username: "Manufaktur",
       passwordHash: adminHash,
       role: "admin",

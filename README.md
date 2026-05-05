@@ -1,4 +1,4 @@
-# nicht-streitkolben.de
+# nicht-streitkolben.xyz
 
 Manufaktur- &amp; Forum-Plattform für die Kolbenmanufaktur Wittenberg.
 
@@ -32,7 +32,7 @@ Anschließend:
 - **Mailhog**: http://localhost:8025
 - **Adminer**: http://localhost:8080 (Server: `db`, User/Pass `kolben`)
 
-In Produktion mit echter Domain `nicht-streitkolben.de` muss
+In Produktion mit echter Domain `nicht-streitkolben.xyz` muss
 `POSTGRES_PASSWORD` und `SESSION_SECRET` in `.env` gesetzt werden, und Port 80
 und 443 müssen von außen erreichbar sein, damit Caddy ein Let’s-Encrypt-Zertifikat
 holen kann.

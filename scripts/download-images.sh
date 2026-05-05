@@ -7,7 +7,7 @@ PROD_DIR="$BASE/web/public/images/products"
 ART_DIR="$BASE/web/public/images/articles"
 mkdir -p "$PROD_DIR" "$ART_DIR"
 
-UA="KolbenmanufakturWittenberg/1.0 (kontakt@nicht-streitkolben.de)"
+UA="KolbenmanufakturWittenberg/1.0 (kontakt@nicht-streitkolben.xyz)"
 
 # $1=Wikimedia-Dateiname (raw, ohne "File:")  $2=Zielpfad  $3=Breite
 dl() {

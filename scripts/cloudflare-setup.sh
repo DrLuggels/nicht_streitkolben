@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Richtet Cloudflare-DNS und SSL-Modus für nicht-streitkolben.de ein.
+# Richtet Cloudflare-DNS und SSL-Modus für nicht-streitkolben.xyz ein.
 #
 # Nutzt:
 #   CF_API_TOKEN    – Token mit Zone:Read + DNS:Edit (+ optional Zone Settings:Edit)
-#   CF_ZONE_NAME    – Domain, z. B. nicht-streitkolben.de
+#   CF_ZONE_NAME    – Domain, z. B. nicht-streitkolben.xyz
 #   ORIGIN_IPV4     – Öffentliche IPv4 dieses Servers
 #   ORIGIN_IPV6     – (optional) Öffentliche IPv6
 #
@@ -23,7 +23,7 @@ if [[ -f "$SCRIPT_DIR/../.env" ]]; then
 fi
 
 : "${CF_API_TOKEN:?CF_API_TOKEN nicht gesetzt}"
-: "${CF_ZONE_NAME:?CF_ZONE_NAME nicht gesetzt (z. B. nicht-streitkolben.de)}"
+: "${CF_ZONE_NAME:?CF_ZONE_NAME nicht gesetzt (z. B. nicht-streitkolben.xyz)}"
 : "${ORIGIN_IPV4:?ORIGIN_IPV4 nicht gesetzt}"
 
 API="https://api.cloudflare.com/client/v4"

@@ -1,0 +1,10 @@
+# Secrets
+.env
+.env.local
+
+# Lokale Bilder/Assets, die nicht ins Repo gehören
+pic/
+
+# Misc
+.DS_Store
+*.log
