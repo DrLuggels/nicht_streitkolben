@@ -1,0 +1,76 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kolben
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kolben}
+      POSTGRES_DB: kolben
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kolben -d kolben"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [internal]
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://kolben:${POSTGRES_PASSWORD:-kolben}@db:5432/kolben
+      SESSION_SECRET: ${SESSION_SECRET:-please-change-this-in-production-very-long-key}
+      NEXT_PUBLIC_SITE_NAME: "Kolbenmanufaktur Wittenberg"
+      NEXT_PUBLIC_SITE_URL: "https://nicht-streitkolben.de"
+      MAIL_HOST: mailhog
+      MAIL_PORT: "1025"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [internal]
+
+  caddy:
+    build:
+      context: ./caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      CF_API_TOKEN: ${CF_API_TOKEN:-}
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddydata:/data
+      - caddyconfig:/config
+    depends_on: [web]
+    networks: [internal]
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8025:8025"
+    networks: [internal]
+
+  adminer:
+    image: adminer:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    depends_on: [db]
+    networks: [internal]
+
+volumes:
+  dbdata:
+  caddydata:
+  caddyconfig:
+
+networks:
+  internal:

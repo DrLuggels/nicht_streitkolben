@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 251 246 239;
+    --bg-elev: 252 247 241;
+    --fg: 28 17 10;
+    --muted: 99 64 37;
+    --border: 219 184 126;
+    --accent: 156 103 48;
+    --accent-fg: 252 247 241;
+    --shadow: 80 53 33;
+  }
+  .dark {
+    --bg: 14 8 5;
+    --bg-elev: 28 17 10;
+    --fg: 252 247 241;
+    --muted: 205 182 161;
+    --border: 67 44 29;
+    --accent: 219 184 126;
+    --accent-fg: 28 17 10;
+    --shadow: 0 0 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans antialiased;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    background-image:
+      radial-gradient(at 80% -10%, rgba(var(--accent), 0.10), transparent 50%),
+      radial-gradient(at 0% 110%, rgba(var(--accent), 0.06), transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight;
+  }
+  ::selection {
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-fg));
+  }
+}
+
+@layer components {
+  .container-tight {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+  .surface {
+    background-color: rgb(var(--bg-elev));
+    border: 1px solid rgb(var(--border) / 0.4);
+    @apply rounded-xl2 shadow-soft;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition;
+  }
+  .btn-primary {
+    background-color: rgb(var(--accent));
+    color: rgb(var(--accent-fg));
+    @apply hover:opacity-90 active:scale-[.98];
+  }
+  .btn-ghost {
+    @apply hover:bg-crema-100/60 dark:hover:bg-espresso-800/60;
+    color: rgb(var(--fg));
+  }
+  .btn-outline {
+    border: 1px solid rgb(var(--border));
+    color: rgb(var(--fg));
+    @apply hover:bg-crema-100/60 dark:hover:bg-espresso-800/60;
+  }
+  .input {
+    @apply w-full rounded-lg px-3 py-2 text-sm outline-none transition;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    border: 1px solid rgb(var(--border) / 0.6);
+  }
+  .input:focus {
+    border-color: rgb(var(--accent));
+    box-shadow: 0 0 0 3px rgb(var(--accent) / 0.18);
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wide;
+    color: rgb(var(--muted));
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+    background-color: rgb(var(--accent) / 0.15);
+    color: rgb(var(--accent));
+  }
+  .link {
+    color: rgb(var(--accent));
+    @apply underline-offset-2 hover:underline;
+  }
+  .prose-paper {
+    @apply prose prose-stone max-w-none dark:prose-invert prose-headings:font-serif prose-a:text-crema-600 dark:prose-a:text-crema-300;
+  }
+}
