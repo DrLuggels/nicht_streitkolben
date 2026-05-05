@@ -50,6 +50,18 @@ services:
     depends_on: [web]
     networks: [internal]
 
+  # Cloudflare Tunnel: Outbound-only Verbindung, ersetzt Port-Forwarding
+  # für nicht-streitkolben.xyz. TLS terminiert am CF-Edge, cloudflared spricht
+  # plain HTTP zu web:3000 im internen Netz.
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CF_TUNNEL_TOKEN:-}
+    depends_on: [web]
+    networks: [internal]
+
   mailhog:
     image: mailhog/mailhog:latest
     restart: unless-stopped
