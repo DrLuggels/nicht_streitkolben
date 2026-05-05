@@ -5,7 +5,6 @@ import { products } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { formatEUR } from "@/lib/format";
 import { articles } from "@/content/articles";
-import { HeroCarousel } from "@/components/HeroCarousel";
 
 export const dynamic = "force-dynamic";
 
@@ -62,12 +61,16 @@ export default async function HomePage() {
           </dl>
         </div>
         <div className="relative">
-          <HeroCarousel
-            slides={[
-              { src: "/images/landing/manufaktur-1.jpg", alt: "Streitkolben in der Manufaktur" },
-              { src: "/images/landing/manufaktur-2.jpg", alt: "Detailaufnahme aus der Werkstatt" },
-            ]}
-          />
+          <div className="surface aspect-[4/5] overflow-hidden">
+            <Image
+              src="/images/landing/manufaktur-1.jpg"
+              alt="Streitkolben in der Manufaktur"
+              width={900}
+              height={1100}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
           <div className="surface absolute -bottom-6 -left-6 hidden max-w-[280px] p-5 md:block">
             <p className="text-sm italic" style={{ color: "rgb(var(--muted))" }}>
               „Ein gut ausbalancierter Streitkolben spart in jedem Quartalsgespräch
