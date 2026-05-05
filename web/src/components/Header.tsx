@@ -54,9 +54,9 @@ export async function Header() {
           )}
         </div>
       </div>
-      <div className="container-tight flex gap-1 overflow-x-auto pb-2 md:hidden">
+      <div className="container-tight flex gap-2 overflow-x-auto pb-2 md:hidden">
         {nav.map((n) => (
-          <Link key={n.href} href={n.href} className="btn btn-ghost px-3 text-xs">
+          <Link key={n.href} href={n.href} className="btn btn-ghost h-10 shrink-0 px-4 text-sm">
             {n.label}
           </Link>
         ))}

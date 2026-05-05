@@ -144,6 +144,7 @@ export default async function ShopPage({
                       alt={p.name}
                       width={500}
                       height={500}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       className="h-full w-full object-cover transition group-hover:scale-[1.04]"
                     />
                   </div>

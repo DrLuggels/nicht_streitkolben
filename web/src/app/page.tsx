@@ -45,18 +45,18 @@ export default async function HomePage() {
               Eigenen Kolben gestalten
             </Link>
           </div>
-          <dl className="mt-12 grid grid-cols-3 gap-6 text-sm">
+          <dl className="mt-10 grid grid-cols-3 gap-4 text-sm sm:mt-12 sm:gap-6">
             <div>
-              <dt className="text-xs uppercase tracking-wide" style={{ color: "rgb(var(--muted))" }}>Tradition</dt>
-              <dd className="mt-1 text-2xl font-semibold">538 Jahre</dd>
+              <dt className="text-[10px] uppercase tracking-wide sm:text-xs" style={{ color: "rgb(var(--muted))" }}>Tradition</dt>
+              <dd className="mt-1 text-lg font-semibold sm:text-2xl">538 Jahre</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide" style={{ color: "rgb(var(--muted))" }}>Manufaktur</dt>
-              <dd className="mt-1 text-2xl font-semibold">Wittenberg</dd>
+              <dt className="text-[10px] uppercase tracking-wide sm:text-xs" style={{ color: "rgb(var(--muted))" }}>Manufaktur</dt>
+              <dd className="mt-1 text-lg font-semibold sm:text-2xl">Wittenberg</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide" style={{ color: "rgb(var(--muted))" }}>Lieferzeit</dt>
-              <dd className="mt-1 text-2xl font-semibold">3–5 Tage</dd>
+              <dt className="text-[10px] uppercase tracking-wide sm:text-xs" style={{ color: "rgb(var(--muted))" }}>Lieferzeit</dt>
+              <dd className="mt-1 text-lg font-semibold sm:text-2xl">3–5 Tage</dd>
             </div>
           </dl>
         </div>
@@ -67,6 +67,7 @@ export default async function HomePage() {
               alt="Streitkolben in der Manufaktur"
               width={900}
               height={1100}
+              sizes="(max-width: 768px) 92vw, 50vw"
               className="h-full w-full object-cover"
               priority
             />
@@ -107,6 +108,7 @@ export default async function HomePage() {
                   alt={p.name}
                   width={500}
                   height={500}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   className="h-full w-full object-cover transition group-hover:scale-[1.04]"
                 />
               </div>
@@ -182,6 +184,7 @@ export default async function HomePage() {
                   alt={a.title}
                   width={800}
                   height={500}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="h-full w-full object-cover transition group-hover:scale-[1.04]"
                 />
               </div>

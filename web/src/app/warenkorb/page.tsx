@@ -61,7 +61,7 @@ export default function CartPage() {
                 <div className="mt-auto flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <button
-                      className="btn btn-outline h-8 w-8 p-0"
+                      className="btn btn-outline h-10 w-10 p-0 text-lg"
                       onClick={() => setQty(it.key, it.qty - 1)}
                       aria-label="Eins weniger"
                     >
@@ -69,7 +69,7 @@ export default function CartPage() {
                     </button>
                     <span className="w-8 text-center font-semibold">{it.qty}</span>
                     <button
-                      className="btn btn-outline h-8 w-8 p-0"
+                      className="btn btn-outline h-10 w-10 p-0 text-lg"
                       onClick={() => setQty(it.key, it.qty + 1)}
                       aria-label="Eins mehr"
                     >
